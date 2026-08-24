@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Healthcare FDE"
+  short_description: "Design governed healthcare AI FDE programs"
+  default_prompt: "Use $ai-healthcare-fde-skill to assess this healthcare AI opportunity and produce a governed Stage Gate rollout plan."
