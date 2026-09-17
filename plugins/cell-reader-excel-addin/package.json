@@ -1,0 +1,18 @@
+{
+  "name": "cell-reader-excel-addin",
+  "version": "1.1.1",
+  "private": true,
+  "description": "在 Excel 任务窗格中查看、编辑并格式化当前单元格的完整内容。",
+  "type": "module",
+  "scripts": {
+    "start": "vite",
+    "build": "tsc --noEmit && vite build",
+    "install:mac": "zsh scripts/install-mac.sh"
+  },
+  "devDependencies": {
+    "@types/office-js": "1.0.607",
+    "office-addin-dev-certs": "2.0.10",
+    "typescript": "7.0.2",
+    "vite": "8.2.2"
+  }
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>单元格阅读器</title>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">CELL READER</p>
+          <h1>单元格阅读器</h1>
+        </div>
+        <button id="refreshButton" class="icon-button" type="button" title="刷新当前单元格" aria-label="刷新当前单元格">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 11a8 8 0 1 0-2.34 5.66M20 4v7h-7" />
+          </svg>
+        </button>
+      </header>
+
+      <section id="loadingState" class="state-card" aria-live="polite">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>正在连接 Excel…</p>
+      </section>
+
+      <section id="unsupportedState" class="state-card is-hidden" aria-live="polite">
+        <div class="state-icon">!</div>
+        <h2>请在 Excel 中打开</h2>
+        <p>此页面需要作为 Excel 加载项运行。</p>
+      </section>
+
+      <section id="errorState" class="state-card is-hidden" aria-live="assertive">
+        <div class="state-icon">!</div>
+        <h2>暂时无法读取</h2>
+        <p id="errorMessage">请重新选择单元格或点击刷新。</p>
+        <button id="retryButton" class="secondary-button" type="button">重试</button>
+      </section>
+
+      <section id="reader" class="reader is-hidden" aria-live="polite">
+        <div class="cell-meta">
+          <div>
+            <span class="meta-label">工作表</span>
+            <strong id="sheetName" class="meta-value">—</strong>
+          </div>
+          <div>
+            <span class="meta-label">单元格</span>
+            <strong id="cellAddress" class="address-chip">—</strong>
+          </div>
+        </div>
+
+        <article class="content-card">
+          <div class="content-toolbar">
+            <span class="section-label">查看与编辑</span>
+            <button id="copyButton" class="copy-button" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="8" y="8" width="11" height="11" rx="2" />
+                <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
+              </svg>
+              <span id="copyLabel">复制</span>
+            </button>
+          </div>
+          <div id="editorToolbar" class="editor-toolbar" role="toolbar" aria-label="文字格式">
+            <button id="boldButton" class="format-button" type="button" title="加粗" aria-label="加粗"><strong>B</strong></button>
+            <button id="italicButton" class="format-button" type="button" title="斜体" aria-label="斜体"><em>I</em></button>
+            <button id="underlineButton" class="format-button" type="button" title="下划线" aria-label="下划线"><u>U</u></button>
+            <div class="color-palette" role="group" aria-label="文字颜色">
+              <button class="color-swatch" type="button" data-color="#C00000" title="红色" aria-label="红色"></button>
+              <button class="color-swatch" type="button" data-color="#ED7D31" title="橙色" aria-label="橙色"></button>
+              <button class="color-swatch" type="button" data-color="#70AD47" title="绿色" aria-label="绿色"></button>
+              <button class="color-swatch" type="button" data-color="#4472C4" title="蓝色" aria-label="蓝色"></button>
+              <button class="color-swatch" type="button" data-color="#7030A0" title="紫色" aria-label="紫色"></button>
+              <button class="color-swatch" type="button" data-color="#000000" title="黑色" aria-label="黑色"></button>
+            </div>
+            <span class="toolbar-divider" aria-hidden="true"></span>
+            <button id="clearFormatButton" class="format-button format-button-wide" type="button" title="清除所选文字格式">清除格式</button>
+          </div>
+          <div
+            id="cellContent"
+            class="cell-content"
+            contenteditable="false"
+            role="textbox"
+            aria-multiline="true"
+            aria-label="当前单元格内容"
+            spellcheck="true"
+            tabindex="0"
+          ></div>
+          <div class="save-bar">
+            <span id="editModeBadge" class="edit-mode-badge">正在检查编辑能力…</span>
+            <button id="saveButton" class="save-button" type="button" disabled>已保存</button>
+          </div>
+          <div class="content-footer">
+            <span id="valueType">文本</span>
+            <span id="characterCount">0 个字符</span>
+          </div>
+        </article>
+
+        <details id="detailsPanel" class="details-card">
+          <summary>原始值与公式</summary>
+          <div class="detail-row">
+            <span>原始值</span>
+            <code id="rawValue">—</code>
+          </div>
+          <div class="detail-row">
+            <span>公式</span>
+            <code id="formulaValue">无</code>
+          </div>
+        </details>
+
+        <p id="statusLine" class="status-line">选择其他单元格时会自动更新</p>
+      </section>
+    </main>
+    <script type="module" src="/src/taskpane.ts"></script>
+  </body>
+</html>

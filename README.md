@@ -1,6 +1,6 @@
 # AI Skill 仓库
 
-面向 AI 项目开发、知识库 RAG、视频内容分析与医疗行业 FDE 的可复用 Skills。仓库统一命名为 `AI-Skills`，包含以下四个独立 Skill。
+面向 AI 项目开发、知识库 RAG、视频内容分析与医疗行业 FDE 的可复用 Skills。仓库统一命名为 `AI-Skills`，包含以下四个独立 Skill，以及一个 Excel 办公插件。
 
 | Skill | 用途 |
 | --- | --- |
@@ -8,6 +8,10 @@
 | [ai-project-engineering](ai-project-engineering/SKILL.md) | Vibe Coding 项目记忆、需求核对、模块边界和行为验收，减少无依据的推断与错误修改 |
 | [rag-knowledge-chunking](rag-knowledge-chunking/SKILL.md) | 清洗与结构切割，保留标题上下文、表格关系和来源范围 |
 | [video-content-analysis](video-content-analysis/SKILL.md) | 解析短视频分享链接，交叉核对内容，生成拆解与落地方案 |
+
+## Excel 办公插件
+
+[Excel 单元格阅读器 v1.1.1](plugins/cell-reader-excel-addin/README.md)：在右侧面板查看当前单元格完整内容，支持复制、编辑与文字格式设置。它是 Microsoft Excel Office Add-in，按目录内说明单独安装。源码使用 MIT 许可证。
 
 ## 安装与调用
 
