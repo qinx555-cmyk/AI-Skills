@@ -1,6 +1,6 @@
-# AI Skills 合集
+# AI Skill 仓库
 
-面向 AI 项目开发、知识库 RAG、视频内容分析与医疗行业 FDE 的可复用 Skills。仓库沿用原名称 `ai-healthcare-FDE-skill`，原医疗 FDE Skill 的目录和内容保持不变。
+面向 AI 项目开发、知识库 RAG、视频内容分析与医疗行业 FDE 的可复用 Skills。仓库统一命名为 `AI-Skills`，包含以下四个独立 Skill。
 
 | Skill | 用途 |
 | --- | --- |
@@ -65,7 +65,7 @@ RAG 脚本接受经核对的 Markdown 或结构块 JSON，不自带 PDF/OCR、Em
 $ai-healthcare-fde-skill 请评估一家 IVD 企业的研发实验记录自动化项目，并给出 Stage 0–7 实施方案。
 ```
 
-Skill 内部名称按 Codex 规范使用全小写 `ai-healthcare-fde-skill`；GitHub 仓库名称保留为 `ai-healthcare-FDE-skill`。
+Skill 内部名称按 Codex 规范使用全小写 `ai-healthcare-fde-skill`；GitHub 合集仓库名称为 `AI-Skills`。
 
 ## 重要边界
 
