@@ -1,0 +1,4 @@
+interface:
+  display_name: "视频解析"
+  short_description: "解析抖音等短视频链接，提取内容要点与赚钱路径，输出拆解和落地方案"
+  default_prompt: "Use $video-content-analysis to 解析这个视频链接的内容与赚钱路径：<粘贴链接>"

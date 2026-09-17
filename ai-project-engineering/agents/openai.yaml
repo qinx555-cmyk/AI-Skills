@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 项目工程化开发"
+  short_description: "把视频中的项目记忆、需求核对和模块边界方法用于持续迭代的软件项目"
+  default_prompt: "请使用 $ai-project-engineering 处理当前项目的开发任务，先定位相关模块、核对需求与边界，再按项目约定实施、验证并更新必要的项目记录。"

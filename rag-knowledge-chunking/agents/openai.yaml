@@ -1,0 +1,4 @@
+interface:
+  display_name: "RAG 文档清洗与上下文切割"
+  short_description: "按标题与表格结构切割知识库文档，保留来源并验证上下文和召回链路"
+  default_prompt: "使用 $rag-knowledge-chunking 处理这批知识库资料，生成切割预览、来源映射和质量报告。"
